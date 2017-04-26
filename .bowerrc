@@ -1,0 +1,5 @@
+{
+  "directory" : "src/components",
+  "proxy": "http://indchnmctb05intpxy01.ad.infosys.com:80",
+  "https-proxy":"http://indchnmctb05intpxy01.ad.infosys.com:80"
+}
