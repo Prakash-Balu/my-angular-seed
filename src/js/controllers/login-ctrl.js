@@ -16,10 +16,10 @@ function LoginCtrl($scope, $location) {
 
     $scope.loginUser = function(userData) {
         if(userData.name!='' && userData.password!='') {
-			$location.path('/dashboard');	
-		}
+		$location.path('/home/dashboard');
+	}
     };
 
     //Call function initialization
-	$scope.init();
+    $scope.init();
 }
