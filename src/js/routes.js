@@ -11,17 +11,21 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
 
         // Application routes
         $stateProvider
-			.state('login', {
+	    .state('login', {
                 url: '/',
                 templateUrl: 'templates/login.html',
-				controller: 'LoginCtrl'
+		controller: 'LoginCtrl'
             })
-            .state('dashboard', {
+	    .state('home', {
+                url: '/home',
+                templateUrl: 'templates/home.html',
+		controller: 'MasterCtrl'
+            })
+	    .state('home.dashboard', {
                 url: '/dashboard',
-                templateUrl: 'templates/dashboard.html',
-				controller: 'MasterCtrl'
+                templateUrl: 'templates/dashboard.html'
             })
-            .state('tables', {
+            .state('home.tables', {
                 url: '/tables',
                 templateUrl: 'templates/tables.html'
             });
