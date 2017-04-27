@@ -1,6 +1,6 @@
 .login-body-bg {
   padding-top: 662px;
-  background-color: #582346;
+  background-color: #30426a;
 }
 
 .form-signin {
@@ -8,16 +8,13 @@
   padding: 15px;
   margin: 0 auto;
 }
-
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
   margin-bottom: 10px;
 }
-
 .form-signin .checkbox {
   font-weight: normal;
 }
-
 .form-signin .form-control {
   position: relative;
   height: auto;
@@ -27,7 +24,6 @@
   padding: 10px;
   font-size: 16px;
 }
-
 .form-signin .form-control:focus {
   z-index: 2;
 }
@@ -44,5 +40,10 @@
     top: 180px;
     width: 350px;
     height: 280px;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.35);
+}
+
+.form-btn-login {
+	background-color: #30426a !important;
+	border-color: #30426a !important;
 }
