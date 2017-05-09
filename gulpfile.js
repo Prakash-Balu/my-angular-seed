@@ -19,6 +19,8 @@ var paths = {
     templates: 'src/templates/**/*.html',
     index: 'src/index.html',
     bower_fonts: 'src/components/**/*.{ttf,woff,eof,svg,woff2}',
+	data_json: 'src/data/*.json',
+	angular_resource: 'src/components/angular-resource/angular-resource.js'
 };
 
 /**
@@ -36,7 +38,7 @@ gulp.task('usemin', function() {
 /**
  * Copy assets
  */
-gulp.task('build-assets', ['copy-bower_fonts', 'copy-styles-css']);
+gulp.task('build-assets', ['copy-bower_fonts', 'copy-styles-css', 'copy-data-json']);
 
 gulp.task('copy-bower_fonts', function() {
     return gulp.src(paths.bower_fonts)
@@ -97,6 +99,7 @@ gulp.task('watch', function() {
     gulp.watch([paths.index], ['usemin']);
 });
 
+
 /**
  * Live reload server
  */
@@ -115,6 +118,14 @@ gulp.task('livereload', function() {
 });
 
 /*
+* Data json copied
+*/
+gulp.task('copy-data-json', function() {
+	return gulp.src(paths.data_json)
+		.pipe(gulp.dest('dist/data'));
+});
+
+/*
 * Clean the Tasks
 */
 gulp.task('clean', function () {
@@ -126,4 +137,4 @@ gulp.task('clean', function () {
  * Gulp tasks
  */
 gulp.task('build', ['usemin', 'build-assets', 'build-custom']);
-gulp.task('default', ['clean', 'build', 'webserver', 'livereload', 'watch']);
+gulp.task('default', ['build', 'webserver', 'livereload', 'watch']);
