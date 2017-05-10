@@ -3,9 +3,9 @@
  */
 
 angular.module('RDash')
-    .controller('LoginCtrl', ['$scope', '$location', 'AuthServices', '$http', LoginCtrl]);
+    .controller('LoginCtrl', ['$scope', '$location', 'AuthServices', '$http', 'toaster', LoginCtrl]);
 
-function LoginCtrl($scope, $location, AuthServices, $http) {
+function LoginCtrl($scope, $location, AuthServices, $http, toaster) {
     $scope.users = [];
 	
     $scope.init = function() {
@@ -13,14 +13,24 @@ function LoginCtrl($scope, $location, AuthServices, $http) {
 			name: '',
 			password: ''
 		};
+		$scope.noError = false;
     };
 
     $scope.loginUser = function(userData) {
 		angular.forEach($scope.users, function(value, key) {
 			if(userData.name == value.name && userData.password==value.password){
+				$scope.noError = true;
 				$location.path('/home/dashboard');
 			}
 		});
+		
+		if(!$scope.noError) {
+			toaster.pop({
+                type: 'error',
+                body: 'Enter Valid credentials',
+                timeout: 1000
+            });
+		}
     };
 	
 	$scope.getUsers = function() {
