@@ -15,7 +15,7 @@ function RegisterCtrl($scope, $location, $http, AuthServices) {
         if(userData.password == userData.cpassword) {
 			$scope.users.push({name:userData.name,password:userData.cpassword});
 			$scope.setUsers();
-			console.log($scope.users);
+			$location.path("/");
 		}
     };
 	
@@ -29,16 +29,9 @@ function RegisterCtrl($scope, $location, $http, AuthServices) {
 	};
 	
 	$scope.setUsers = function() {
-		/*AuthServices.setUsers($scope.users)
+		AuthServices.setUsers($scope.users)
 		.success(function(data){
 			console.log(data);
-		}).error(function(error){
-			alert(error);
-		});*/
-		
-		$http.put('data/login.json', $scope.users)
-		.success(function(data){
-			 return data;
 		}).error(function(error){
 			alert(error);
 		});
