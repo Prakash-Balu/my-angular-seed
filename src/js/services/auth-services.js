@@ -7,7 +7,7 @@ angular.module('RDash')
 
 function AuthServices($http) {   
 	this.getUsers = function() {
-		return $http.get('data/login.json')
+		return $http.get('http://localhost:8080/login.json')
 		.success(function(data){
 			 return data;
 		}).error(function(error){
@@ -16,7 +16,7 @@ function AuthServices($http) {
 	};
 	
 	this.setUsers = function(userData) {
-		return $http.put('data/login.json', userData)
+		return $http.post('http://localhost:8080/register.php', userData)
 		.success(function(data){
 			 return data;
 		}).error(function(error){
